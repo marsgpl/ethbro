@@ -5,11 +5,13 @@ LD = gcc
 CCFLAGS = -c -m64 -std=gnu99 -O2 -Wall -Werror
 LDFLAGS =
 INCS =
-LIBS =
+LIBS = -lsecp256k1
 
 TARGET = $(NAME)
 
-OBJECTS = $(NAME).o hex.o
+OBJECTS = $(NAME).o \
+	hex.o \
+	keccak.o
 
 build: $(TARGET)
 
@@ -22,5 +24,6 @@ $(TARGET): $(OBJECTS)
 .c.o:
 	$(CC) $(CCFLAGS) -o $@ $< $(INCS)
 
-$(NAME).o: $(NAME).h eth.h hex.h
+$(NAME).o: $(NAME).h eth.h hex.h keccak.h
 hex.o: hex.h
+keccak.o: keccak.h

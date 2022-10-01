@@ -1,8 +1,8 @@
 #import "hex.h"
 
 void hex_to_bin(
-    const char *hex,
-    char *bin,
+    const unsigned char *hex,
+    unsigned char *bin,
     const uint8_t hex_len
 ) {
     for (uint8_t i = 0, j = 0; i < hex_len; i += 2, j++) {
@@ -11,13 +11,13 @@ void hex_to_bin(
 }
 
 void bin_to_hex(
-    const char *bin,
-    char *hex,
+    const unsigned char *bin,
+    unsigned char *hex,
     const uint8_t bin_len
 ) {
-    char *out = &hex[0];
+    unsigned char *out = &hex[0];
 
     for (uint8_t i = 0; i < bin_len; i++) {
-        out += sprintf(out, "%02x", bin[i]);
+        out += sprintf((char *)out, "%02x", bin[i]);
     }
 }
