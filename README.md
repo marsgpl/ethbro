@@ -32,3 +32,16 @@ Then follow instructions: <https://github.com/bitcoin-core/secp256k1#build-steps
     example addr = d5e099c71b797516c10ed0f0d895f429c2781142
     current addr = d5e099c71b797516c10ed0f0d895f429c2781142
                    EQUAL
+
+## Vanity
+
+```bash
+vim vanity.h # edit addr_start bytes seq
+make vanity && time ./vanity
+```
+
+## Sample output
+
+    private key: 0x12bfd51856d82ec8a556683eaa464ddaad28e3e0cd0e4f5f34189cf57e29701d
+    address: 0xdead8bd33ad2c6b47728f506bb21c865ec685e8f
+    iterations: 4756
